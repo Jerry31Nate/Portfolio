@@ -1,0 +1,358 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: rgb(243, 251, 246);
+}
+
+nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  padding: 1em 8rem;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(7px);
+  outline: 1px solid #e6f0f8;
+  z-index: 10;
+}
+
+main {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0.5rem;
+}
+
+section {
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/*General Text*/
+h1,
+h2 {
+  font-size: 2.9rem;
+  font-weight: 400;
+  color: #000000;
+  width: 650px;
+  text-align: left;
+}
+
+h3 {
+  color: #2d3748;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 2.7rem;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+h5 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #000000;
+  text-align: left;
+}
+
+/*Navbar Styles*/
+nav a {
+  text-decoration: none;
+  color: inherit;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  padding-bottom: 0.3rem;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px;
+  left: 0;
+  background-color: rgb(71, 59, 240);
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/*Button Styles*/
+
+.button-1 {
+  padding: 0.8rem 1rem;
+  background-color: rgb(64, 85, 255);
+  color: #ffff;
+  min-width: 3.5rem;
+  max-width: fit-content;
+  white-space: nowrap;
+  border-radius: 0.3rem;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button-1:hover {
+  background-color: rgb(40, 59, 230);
+}
+
+.button-1 img {
+  filter: brightness(0) invert(1);
+  height: 13px;
+  width: 13px;
+  object-fit: contain;
+}
+
+.button-2 {
+  padding: 0.8rem 3rem;
+  background-color: transparent;
+  color: #323232;
+  border: 1px solid #ccd1ce;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.button-2:hover {
+  background-color: #f0f4f3;
+}
+
+/* Main Content Styles */
+/* Section Inicio Styles */
+
+.inicio {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 2.3rem;
+  align-items: end;
+  padding: 5rem 10rem;
+  line-height: 1.3;
+}
+
+.projects-button button {
+  position: relative;
+  left: 50px;
+}
+
+.projects-button img {
+  filter: brightness(0) invert(1);
+  height: 18px;
+  width: 18px;
+  object-fit: contain;
+}
+
+.contact-button button {
+  text-align: left;
+  position: relative;
+  right: 220px;
+}
+
+.card-profile {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 50%;
+  outline: 4px solid rgba(71, 59, 240, 0.249);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 20px;
+  background-color: #220caf;
+}
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-decorative {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  left: 110px;
+  bottom: 55px;
+  background-color: rgb(64, 85, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-text p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: rgb(96, 99, 96);
+  width: 650px;
+  text-align: left;
+}
+
+.highlight {
+  color: rgb(64, 85, 255);
+  font-weight: 500;
+}
+
+.description p {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: rgb(96, 99, 96);
+  width: 650px;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.7;
+}
+
+/* Skills Section Styles */
+.skills ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  padding-left: 0;
+}
+
+.skills li {
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills li:hover {
+  transform: translateY(-2px);
+  background-color: #e2e8f0;
+}
+
+.skills img {
+  height: 35px;
+  width: 35px;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+/*******************************/
+
+/* Contact Section Styles */
+
+/*AboutMe Section Styles*/
+.about-me-card {
+  border: 1px solid #000000;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: transparent;
+  border: 2px solid rgb(64, 85, 255);
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+/*Projects Section Styles*/
+.projects ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));
+  gap: 1.5rem;
+  padding-left: 0;
+}
+.projects li {
+  background-color: transparent;
+  padding: 1.5rem;
+  border-radius: 6px;
+  line-height: 2;
+  text-align: left;
+  border: 1px solid #000000;
+  background-color: #f0f8f9;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: auto 1fr;
+}
+
+.projects li:hover {
+  border: 3px solid #220caf;
+}
+
+.projects h5:hover {
+  color: rgb(64, 85, 255);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects img {
+  height: 250px;
+  width: 220px;
+  align-items: start;
+}
+
+.info,
+.info-2 {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+.info img,
+.info-2 img {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.card-info {
+  border: 1px solid rgb(64, 85, 255);
+  background-color: #f0f8f9;
+  border-radius: 20px;
+  display: flex;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  font-size: 0.8rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.card-info:hover {
+  background-color: #ccd1ce;
+}
+
+.card-info-2 {
+  display: flex;
+  gap: 0.5rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.card-info-2 a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: inherit;
+}
