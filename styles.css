@@ -3,49 +3,75 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+}
+:root{
+  --bg: #edf2f4;
+  --text:#1b1b1e;
+  --text2: #303036;
+  --nav-bg: transparent;
+  --nav-scrolled-bg: rgba(255, 255, 255, 0.248);
+  --accent: rgb(64, 85, 255);
+  --muted: #606360;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: rgb(243, 251, 246);
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
-nav {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 2rem;
-  padding: 1em 8rem;
-  margin: 0;
+/* Modo oscuro*/
+body.dark{
+  --bg: #071024;
+  --text: #e6eef8;
+  --text2: #cbd5e1;
+  --nav-bg: rgba(7,16,36,0.25);
+  --nav-scrolled-bg: rgba(10,14,30,0.6);
+  --accent: #60a5fa;
+  --muted: #9aa4b2;
+}
+
+
+header {
+  padding: 0.5rem 0;
   position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(7px);
-  outline: 1px solid #e6f0f8;
   z-index: 10;
+  top: 0;
+}
+
+nav{
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(0px);
+    outline: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 
 main {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 0.5rem;
 }
 
 section {
-  padding: 2rem;
+  width: auto;
+  padding: 2em;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 
 footer {
   text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
+  padding: 2em;
+  font-size: 0.9em;
 }
 
 /*General Text*/
@@ -53,13 +79,13 @@ h1,
 h2 {
   font-size: 2.9rem;
   font-weight: 400;
-  color: #000000;
+  color: var(--text);
   width: 650px;
   text-align: left;
 }
 
 h3 {
-  color: #2d3748;
+  color: var(--text);
   text-align: center;
   font-size: 1.1rem;
   font-weight: 400;
@@ -70,7 +96,7 @@ h3 {
 h4 {
   font-size: 2.7rem;
   font-weight: 400;
-  color: #000000;
+  color: var(--text);
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -78,16 +104,16 @@ h4 {
 h5 {
   font-size: 2rem;
   font-weight: 300;
-  color: #000000;
+  color: var(--text);
   text-align: left;
 }
 
 /*Navbar Styles*/
 nav a {
   text-decoration: none;
-  color: inherit;
+  color: var(--text2);
   position: relative; /* Necesario para posicionar el pseudo-elemento */
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.1em;
 }
 
 nav a::after {
@@ -97,7 +123,7 @@ nav a::after {
   height: 2px;
   bottom: 0px;
   left: 0;
-  background-color: rgb(71, 59, 240);
+  background-color: var(--accent);
   transition: width 0.3s ease-in-out;
 }
 
@@ -105,39 +131,87 @@ nav a:hover::after {
   width: 100%;
 }
 
+nav .link{
+  gap: 1.3em;
+  display: flex;
+}
+
+nav.scrolled {
+    background-color: var(--nav-scrolled-bg);
+    backdrop-filter: blur(7px);
+    outline: 2px solid rgba(230,240,248,0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.button-theme {
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent); 
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+}
+
+.button-theme img {
+  height: 55%;
+  width: 55%;
+  object-fit: contain;
+  filter : grayscale(20%)
+}
+.button-theme img:hover {
+   transform: scale(1.12);
+}
+
+/* icono dentro del botón: opcional — se invierte en dark para que se vea */
+.button-theme img{
+  transition: filter .2s ease;
+}
+body.dark .button-theme img{
+  filter: invert(1) grayscale(.05);
+}
 /*Button Styles*/
 
 .button-1 {
   padding: 0.8rem 1rem;
-  background-color: rgb(64, 85, 255);
-  color: #ffff;
-  min-width: 3.5rem;
-  max-width: fit-content;
-  white-space: nowrap;
+  min-width: 3.5em;
   border-radius: 0.3rem;
   align-items: center;
   border: none;
   cursor: pointer;
   display: flex;
+  background-color: transparent;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.button-1:hover {
+.projects-button .button-1 {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+.projects-button .button-1:hover {
   background-color: rgb(40, 59, 230);
 }
 
 .button-1 img {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+}
+
+.projects-button .button-1 img {
   filter: brightness(0) invert(1);
-  height: 13px;
-  width: 13px;
+  height: 15px;
+  width: 15px;
   object-fit: contain;
 }
 
 .button-2 {
   padding: 0.8rem 3rem;
   background-color: transparent;
-  color: #323232;
+  color: var(--muted);
   border: 1px solid #ccd1ce;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -153,15 +227,15 @@ nav a:hover::after {
 .inicio {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem 2.3rem;
+  gap: 1em 2.3em;
   align-items: end;
-  padding: 5rem 10rem;
+  padding: 5em 15em;
   line-height: 1.3;
 }
 
 .projects-button button {
   position: relative;
-  left: 50px;
+  left: 50%;
 }
 
 .projects-button img {
@@ -174,7 +248,7 @@ nav a:hover::after {
 .contact-button button {
   text-align: left;
   position: relative;
-  right: 220px;
+  right: 32%;
 }
 
 .card-profile {
@@ -182,11 +256,9 @@ nav a:hover::after {
   height: 140px;
   overflow: hidden;
   border-radius: 50%;
-  outline: 4px solid rgba(71, 59, 240, 0.249);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: 4px solid var(--accent);
   position: relative;
   left: 20px;
-  background-color: #220caf;
 }
 .profile-pic {
   width: 100%;
@@ -203,7 +275,7 @@ nav a:hover::after {
   position: relative;
   left: 110px;
   bottom: 55px;
-  background-color: rgb(64, 85, 255);
+  background-color: var(--accent);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,20 +286,20 @@ nav a:hover::after {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: rgb(96, 99, 96);
+  color: var(--muted);
   width: 650px;
   text-align: left;
 }
 
 .highlight {
-  color: rgb(64, 85, 255);
+  color: var(--accent);
   font-weight: 500;
 }
 
 .description p {
   font-size: 1.1rem;
   letter-spacing: -0.01em;
-  color: rgb(96, 99, 96);
+  color: var(--muted);
   width: 650px;
   font-weight: 300;
   text-align: left;
@@ -251,7 +323,6 @@ nav a:hover::after {
 
 .skills li:hover {
   transform: translateY(-2px);
-  background-color: #e2e8f0;
 }
 
 .skills img {
@@ -259,7 +330,9 @@ nav a:hover::after {
   width: 35px;
   display: block;
   margin: 0 auto 1rem auto;
+  transition: filter 0.3s ease;
 }
+
 /*******************************/
 
 /* Contact Section Styles */
@@ -267,33 +340,35 @@ nav a:hover::after {
 /*AboutMe Section Styles*/
 .about-me-card {
   border: 1px solid #000000;
-  padding: 1.5rem;
+  padding: 1.5em;
   border-radius: 10px;
   text-align: center;
   background-color: transparent;
-  border: 2px solid rgb(64, 85, 255);
-  margin-left: 10rem;
-  margin-right: 10rem;
+  border: 2px solid var(--accent);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  min-width: 300px;
 }
 
 /*Projects Section Styles*/
 .projects ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 1.5em;
   padding-left: 0;
 }
 .projects li {
   background-color: transparent;
-  padding: 1.5rem;
+  padding: 1.5em;
   border-radius: 6px;
   line-height: 2;
   text-align: left;
-  border: 1px solid #000000;
-  background-color: #f0f8f9;
+  border: 1px solid var(--accent);
+  background-color: var(--bg);
   display: grid;
-  gap: 1.5rem;
+  gap: 1.5em;
   grid-template-columns: auto 1fr;
 }
 
@@ -302,7 +377,7 @@ nav a:hover::after {
 }
 
 .projects h5:hover {
-  color: rgb(64, 85, 255);
+  color: var(--accent);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -327,8 +402,8 @@ nav a:hover::after {
 }
 
 .card-info {
-  border: 1px solid rgb(64, 85, 255);
-  background-color: #f0f8f9;
+  border: 1px solid var(--accent);
+  background-color: var(--bg);
   border-radius: 20px;
   display: flex;
   padding-left: 0.6rem;
@@ -349,6 +424,7 @@ nav a:hover::after {
   padding-right: 0.6rem;
   font-size: 1rem;
   align-items: center;
+  color:var(--text);
 }
 
 .card-info-2 a {
