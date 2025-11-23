@@ -80,7 +80,6 @@ h2 {
   font-size: 2.9rem;
   font-weight: 400;
   color: var(--text);
-  width: 650px;
   text-align: left;
 }
 
@@ -176,7 +175,7 @@ body.dark .button-theme img{
 
 .button-1 {
   padding: 0.8rem 1rem;
-  min-width: 3.5em;
+  width: auto;
   border-radius: 0.3rem;
   align-items: center;
   border: none;
@@ -195,12 +194,6 @@ body.dark .button-theme img{
   background-color: rgb(40, 59, 230);
 }
 
-.button-1 img {
-  height: 20px;
-  width: 20px;
-  object-fit: contain;
-}
-
 .projects-button .button-1 img {
   filter: brightness(0) invert(1);
   height: 15px;
@@ -210,6 +203,7 @@ body.dark .button-theme img{
 
 .button-2 {
   padding: 0.8rem 3rem;
+  width: auto;
   background-color: transparent;
   color: var(--muted);
   border: 1px solid #ccd1ce;
@@ -226,39 +220,41 @@ body.dark .button-theme img{
 
 .inicio {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em 2.3em;
-  align-items: end;
-  padding: 5em 15em;
+  grid-template-columns: auto  1fr;
+  gap: 1rem 3rem;
+  align-items: center;
+  padding: 5em 0.5em;
+  max-width: 700px;
+  min-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.3;
-}
-
-.projects-button button {
   position: relative;
-  left: 50%;
 }
 
-.projects-button img {
-  filter: brightness(0) invert(1);
-  height: 18px;
-  width: 18px;
-  object-fit: contain;
+.projects-button{
+  justify-self: end;
+  align-self: center;
+  transform: translatex(30%);
 }
 
-.contact-button button {
-  text-align: left;
-  position: relative;
-  right: 32%;
+.contact-button {
+  justify-self: start;
+  align-self: center;
+  transform: translateX(10%);
 }
 
 .card-profile {
   width: 140px;
   height: 140px;
-  overflow: hidden;
   border-radius: 50%;
   outline: 4px solid var(--accent);
+  display: block;
+  margin:0;
+  grid-column: 1;
+  justify-self: start;
+  align-self: center;
   position: relative;
-  left: 20px;
 }
 .profile-pic {
   width: 100%;
@@ -271,10 +267,10 @@ body.dark .button-theme img{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  left: 110px;
-  bottom: 55px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  transform: translate(20%, 20%);
   background-color: var(--accent);
   display: flex;
   justify-content: center;
@@ -282,12 +278,11 @@ body.dark .button-theme img{
 }
 
 .header-text p {
-  font-size: 0.9rem;
+  font-size: 0.9em;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: var(--muted);
-  width: 650px;
   text-align: left;
 }
 
@@ -300,7 +295,6 @@ body.dark .button-theme img{
   font-size: 1.1rem;
   letter-spacing: -0.01em;
   color: var(--muted);
-  width: 650px;
   font-weight: 300;
   text-align: left;
   line-height: 1.7;
